@@ -1,26 +1,23 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Fragment } from 'react';
+import LanguageSelect from './components/LanguageSelect';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import Portugues from './components/Portugues';
+import { Reset } from 'styled-reset';
 
-function App() {
+const App = () => {
+  const str = 'hello';
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Fragment>
+      <Reset />
+      <Router>
+        <Switch>
+          <Route path='/' exact component={LanguageSelect} />
+          <Route path='/pt' exact component={Portugues} />
+        </Switch>
+      </Router>
+      {console.log(str.length)}
+    </Fragment>
   );
-}
+};
 
 export default App;
